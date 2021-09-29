@@ -6,22 +6,23 @@ import { AppComponent } from './app.component';
 import { Step1Component } from './components/step1/step1.component';
 import { Step2Component } from './components/step2/step2.component';
 import { ConstancyComponent } from './commons/constancy/constancy.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 const routes: Routes = [
   {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'base',
-  },
-  {
-    path: 'home',
-    component: AppComponent
-  },
-  {
-    path: 'base',
+    path: 'employee',
     component: BaseComponent,
     children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'home'
+      },
+      {
+        path: 'home',
+        component: HomeComponent
+      },
       {
         path: 'paso1',
         component: Step1Component
@@ -36,7 +37,7 @@ const routes: Routes = [
       },
     ]
   },
-  { path: '**', pathMatch: 'full', redirectTo: '' },
+  { path: '**', pathMatch: 'full', redirectTo: 'employee' },
 ]
 
 

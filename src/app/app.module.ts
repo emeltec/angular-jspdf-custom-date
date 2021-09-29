@@ -9,11 +9,13 @@ import { Step2Component } from './components/step2/step2.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ConstancyComponent } from './commons/constancy/constancy.component';
 import { PdfComponent } from './commons/pdf/pdf.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BaseComponent,
+    HomeComponent,
     Step1Component,
     Step2Component,
     ConstancyComponent,
