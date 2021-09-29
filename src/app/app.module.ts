@@ -1,16 +1,34 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { BaseComponent } from './components/base/base.component';
+import { Step1Component } from './components/step1/step1.component';
+import { Step2Component } from './components/step2/step2.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ConstancyComponent } from './commons/constancy/constancy.component';
+import { PdfComponent } from './commons/pdf/pdf.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BaseComponent,
+    Step1Component,
+    Step2Component,
+    ConstancyComponent,
+    PdfComponent,
+  ],
+  exports:[
+    PdfComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
