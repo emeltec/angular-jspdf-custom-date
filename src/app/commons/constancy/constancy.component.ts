@@ -10,6 +10,7 @@ import { PdfComponent } from '../pdf/pdf.component';
 export class ConstancyComponent implements OnInit {
 
   @ViewChild(PdfComponent) pdfComp: PdfComponent;
+  @ViewChild('pdfData') pdfData: ElementRef;
 
   constructor() { }
 
@@ -20,7 +21,8 @@ export class ConstancyComponent implements OnInit {
   public downloadAsPDF() {
     const options: jsPDFOptions = {
       orientation: 'portrait',
-      unit: 'px'
+      unit: 'px',
+      format: 'a4'
     }
     const sheet = this.pdfComp.pdfTable.nativeElement.cloneNode(true)
     sheet.style.display = ''
@@ -28,7 +30,7 @@ export class ConstancyComponent implements OnInit {
 
     doc.html(sheet, {
       callback: function (doc) {
-        doc.save('file.pdf');
+        doc.save('constancia.pdf');
       },
       margin:[40,20],
       image: {type:'jpeg', quality:1},
